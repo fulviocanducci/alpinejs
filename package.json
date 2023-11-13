@@ -3,7 +3,9 @@
     "build": "webpack --config webpack.config.js --watch"
   },
   "dependencies": {
-    "alpinejs": "^3.13.2"
+    "@alpinejs/mask": "^3.13.2",
+    "alpinejs": "^3.13.2",
+    "axios": "^1.6.1"
   },
   "devDependencies": {
     "webpack": "^5.89.0",

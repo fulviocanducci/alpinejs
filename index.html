@@ -7,9 +7,30 @@
 </head>
 <body>
     <div x-data="counter">
-        <div x-text="count"></div>
+        <div x-text="count"  x-transition.duration.5000ms></div>
         <button @click="increment">Incrementar</button>
         <button @click="decrement">Decrementar</button>
+    </div>
+    <div x-data="form">
+        <form @submit.prevent="submit">
+            <div>
+                <label>Nome:</label>
+                <input type="text" x-model="data.name" required/>
+            </div>
+            <div>
+                <label>E-mail:</label>
+                <input type="email" x-model="data.email" required/>
+            </div>
+            <div>
+                <label>Data:</label>
+                <input type="text" x-model="data.date" x-mask="99/99/9999" placeholder="DD/MM/YYYY" required/>
+            </div>
+            <div>
+                <label>Valor:</label>
+                <input type="text" x-model="data.value" x-mask:dynamic="$money($input, ',', '.', 2)" required/>
+            </div>
+            <button type="submit">Enviar</button>
+        </form>
     </div>
     <script src="dist/bundle.js"></script>
 </body>
