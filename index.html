@@ -3,10 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./dist/main.css">
     <title>AlpineJs</title>
 </head>
 <body>
-    <div x-data="counter">
+    <div class="container">
+        <div x-data="load">
+            <template x-if="datas === null">
+                <div>Carregando ...</div>
+            </template>
+            <template x-for="data in datas">
+                <div>
+                    <div class="row mt-3">
+                        <div x-text="data.cep" class="col-md-2"></div>
+                        <div x-text="data.logradouro" class="col-md-4"></div>
+                        <div x-text="data.complemento" class="col-md-2"></div>
+                        <div x-text="data.bairro" class="col-md-2"></div>
+                        <div x-text="data.localidade" class="col-md-2"></div>
+                        <div x-text="data.uf" class="col-md-2"></div>
+                        <div x-text="data.ibge" class="col-md-2"></div>
+                        <div x-text="data.gia" class="col-md-2"></div>
+                        <div x-text="data.ddd" class="col-md-2"></div>
+                        <div x-text="data.siafi" class="col-md-2"></div>
+                    </div>
+                    <template x-if="datas !== null && datas.length > 0">
+                        <hr/>
+                    </template>
+                </div>
+            </template>
+        </div>
+    </div>
+    <!--<div x-data="counter">
         <div x-text="count"  x-transition.duration.5000ms></div>
         <button @click="increment">Incrementar</button>
         <button @click="decrement">Decrementar</button>
@@ -31,7 +58,7 @@
             </div>
             <button type="submit">Enviar</button>
         </form>
-    </div>
+    </div>-->
     <script src="dist/bundle.js"></script>
 </body>
 </html>
